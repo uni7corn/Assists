@@ -16,12 +16,14 @@ class ForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
         // API 34+ 必须在 manifest 与 startForeground 中声明类型，否则 MissingForegroundServiceTypeException
-        ServiceCompat.startForeground(
-            this,
-            1,
-            createNotification(),
-            ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            ServiceCompat.startForeground(
+                this,
+                1,
+                createNotification(),
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+            )
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
