@@ -9,8 +9,8 @@ buildscript {
         targetSdk = 36
 
         // 应用版本
-        versionCode = 37
-        versionName = "3.5.0"
+        versionCode = 38
+        versionName = "3.5.1"
         mavenVersion = "3.5.0"
 
         // 依赖库版本
